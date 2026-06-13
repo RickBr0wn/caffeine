@@ -6,6 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let timerManager = TimerManager.shared
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        CaffeineShortcutsProvider.updateAppShortcutParameters()
         menuBarManager = MenuBarManager(caffeineManager: caffeineManager, timerManager: timerManager)
         timerManager.onExpiry = { [weak self] in
             self?.caffeineManager.deactivate()
