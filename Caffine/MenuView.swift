@@ -6,16 +6,10 @@ struct MenuView: View {
     @ObservedObject var timerManager: TimerManager
     @State private var showDuration = false
     @State private var settingsExpanded = true
-    @State private var isOn: Bool
+    @State private var isOn = false
     @AppStorage("activateAtLaunch") private var activateAtLaunch = false
     @AppStorage("deactivateOnLock") private var deactivateOnLock = false
     @State private var loginEnabled = SMAppService.mainApp.status == .enabled
-
-    init(caffeineManager: CaffeineManager, timerManager: TimerManager) {
-        self.caffeineManager = caffeineManager
-        self.timerManager = timerManager
-        self._isOn = State(initialValue: caffeineManager.isActive)
-    }
 
     var body: some View {
         Group {
@@ -43,7 +37,9 @@ struct MenuView: View {
                 Toggle("", isOn: $isOn)
                     .toggleStyle(.switch)
                     .labelsHidden()
+                    .onAppear { isOn = caffeineManager.isActive }
                     .onChange(of: isOn) { newValue in
+                        guard newValue != caffeineManager.isActive else { return }
                         if newValue {
                             caffeineManager.activate()
                             timerManager.start(duration: timerManager.selectedDuration)
