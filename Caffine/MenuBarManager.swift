@@ -18,15 +18,9 @@ class MenuBarManager: NSObject, NSPopoverDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
-        let menuView = MenuView(caffeineManager: caffeineManager, timerManager: timerManager)
-            .preferredColorScheme(.dark)
-        let hosting = NSHostingController(rootView: menuView)
-        hosting.sizingOptions = .preferredContentSize
-
         popover = NSPopover()
         popover.behavior = .transient
         popover.appearance = NSAppearance(named: .darkAqua)
-        popover.contentViewController = hosting
 
         super.init()
 
@@ -84,6 +78,11 @@ class MenuBarManager: NSObject, NSPopoverDelegate {
             popover.performClose(nil)
         } else if Date().timeIntervalSince(popoverClosedAt) > 0.15 {
             if let button = statusItem.button {
+                let menuView = MenuView(caffeineManager: caffeineManager, timerManager: timerManager)
+                    .preferredColorScheme(.dark)
+                let hosting = NSHostingController(rootView: menuView)
+                hosting.sizingOptions = .preferredContentSize
+                popover.contentViewController = hosting
                 popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
             }
         }
