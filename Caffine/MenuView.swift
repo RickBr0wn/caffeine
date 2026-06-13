@@ -58,17 +58,14 @@ struct MenuView: View {
 
             menuDivider
 
-            HoverRow(action: {
-                withAnimation(.easeInOut(duration: 0.15)) { settingsExpanded.toggle() }
-            }) {
+            HoverRow(action: { settingsExpanded.toggle() }) {
                 HStack {
                     Text("Settings")
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Image(systemName: "chevron.down")
+                    Image(systemName: settingsExpanded ? "chevron.down" : "chevron.right")
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
-                        .rotationEffect(.degrees(settingsExpanded ? 0 : -90))
                 }
             }
 
