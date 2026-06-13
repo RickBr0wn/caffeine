@@ -6,9 +6,16 @@ struct MenuView: View {
     @ObservedObject var timerManager: TimerManager
     @State private var showDuration = false
     @State private var settingsExpanded = true
+    @State private var isOn: Bool
     @AppStorage("activateAtLaunch") private var activateAtLaunch = false
     @AppStorage("deactivateOnLock") private var deactivateOnLock = false
     @State private var loginEnabled = SMAppService.mainApp.status == .enabled
+
+    init(caffeineManager: CaffeineManager, timerManager: TimerManager) {
+        self.caffeineManager = caffeineManager
+        self.timerManager = timerManager
+        self._isOn = State(initialValue: caffeineManager.isActive)
+    }
 
     var body: some View {
         Group {
@@ -33,9 +40,21 @@ struct MenuView: View {
                     .font(.headline)
                     .fontWeight(.bold)
                 Spacer()
-                Toggle("", isOn: caffeineBinding)
+                Toggle("", isOn: $isOn)
                     .toggleStyle(.switch)
                     .labelsHidden()
+                    .onChange(of: isOn) { newValue in
+                        if newValue {
+                            caffeineManager.activate()
+                            timerManager.start(duration: timerManager.selectedDuration)
+                        } else {
+                            caffeineManager.deactivate()
+                            timerManager.stop()
+                        }
+                    }
+                    .onChange(of: caffeineManager.isActive) { newValue in
+                        isOn = newValue
+                    }
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 14)
@@ -90,21 +109,6 @@ struct MenuView: View {
                 Text("Quit Caffeine").foregroundStyle(.primary)
             }
         }
-    }
-
-    private var caffeineBinding: Binding<Bool> {
-        Binding(
-            get: { caffeineManager.isActive },
-            set: { newValue in
-                if newValue {
-                    caffeineManager.activate()
-                    timerManager.start(duration: timerManager.selectedDuration)
-                } else {
-                    caffeineManager.deactivate()
-                    timerManager.stop()
-                }
-            }
-        )
     }
 
     private func toggleLogin() {
