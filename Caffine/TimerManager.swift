@@ -27,6 +27,7 @@ enum Duration: CaseIterable, Hashable {
 }
 
 class TimerManager: ObservableObject {
+    static let shared = TimerManager()
     @Published var selectedDuration: Duration = .indefinite
     @Published var remainingSeconds: Int? = nil
     var onExpiry: (() -> Void)?

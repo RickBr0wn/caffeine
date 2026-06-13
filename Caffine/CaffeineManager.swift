@@ -2,6 +2,7 @@ import Foundation
 import IOKit.pwr_mgt
 
 class CaffeineManager: ObservableObject {
+    static let shared = CaffeineManager()
     @Published var isActive = false
     private var assertionID: IOPMAssertionID = 0
 

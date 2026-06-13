@@ -2,8 +2,8 @@ import AppKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var menuBarManager: MenuBarManager!
-    private let caffeineManager = CaffeineManager()
-    private let timerManager = TimerManager()
+    private let caffeineManager = CaffeineManager.shared
+    private let timerManager = TimerManager.shared
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         menuBarManager = MenuBarManager(caffeineManager: caffeineManager, timerManager: timerManager)
