@@ -27,7 +27,7 @@ struct MenuView: View {
     private var mainView: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
-                Text("Caffine")
+                Text("Caffeine")
                     .font(.headline)
                     .fontWeight(.bold)
                 Spacer()
@@ -82,7 +82,7 @@ struct MenuView: View {
                 Text("About").foregroundStyle(.primary)
             }
             HoverRow(action: { NSApplication.shared.terminate(nil) }) {
-                Text("Quit Caffine").foregroundStyle(.primary)
+                Text("Quit Caffeine").foregroundStyle(.primary)
             }
         }
     }

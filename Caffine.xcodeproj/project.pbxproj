@@ -88,8 +88,8 @@
 			);
 			dependencies = (
 			);
-			name = Caffine;
-			productName = Caffine;
+			name = Caffeine;
+			productName = Caffeine;
 			productReference = 1234567890ABCDEF00000010 /* Caffine.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -288,7 +288,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Caffine/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Caffine;
+				INFOPLIST_KEY_CFBundleDisplayName = Caffeine;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -296,7 +296,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rickbrown.caffine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickbrown.caffeine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -315,7 +315,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Caffine/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Caffine;
+				INFOPLIST_KEY_CFBundleDisplayName = Caffeine;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,7 +323,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rickbrown.caffine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickbrown.caffeine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

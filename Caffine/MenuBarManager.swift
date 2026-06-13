@@ -28,7 +28,7 @@ class MenuBarManager: NSObject {
         super.init()
 
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "cup.and.saucer", accessibilityDescription: "Caffine")
+            button.image = NSImage(systemSymbolName: "cup.and.saucer", accessibilityDescription: "Caffeine")
             button.image?.isTemplate = true
             button.action = #selector(togglePopover)
             button.target = self
@@ -51,7 +51,7 @@ class MenuBarManager: NSObject {
 
     private func updateIcon(active: Bool) {
         let name = active ? "cup.and.saucer.fill" : "cup.and.saucer"
-        let image = NSImage(systemSymbolName: name, accessibilityDescription: "Caffine")
+        let image = NSImage(systemSymbolName: name, accessibilityDescription: "Caffeine")
         image?.isTemplate = true
         statusItem.button?.image = image
         updateTitle()

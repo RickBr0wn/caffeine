@@ -1,7 +1,7 @@
 import AppIntents
 
 struct DeactivateCaffeineIntent: AppIntent {
-    static var title: LocalizedStringResource = "Turn Off Caffine"
+    static var title: LocalizedStringResource = "Turn Off Caffeine"
     static var description = IntentDescription("Allows your Mac display to sleep normally.")
     static var openAppWhenRun: Bool = false
 
@@ -9,7 +9,7 @@ struct DeactivateCaffeineIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         CaffeineManager.shared.deactivate()
         TimerManager.shared.stop()
-        return .result(dialog: "Caffine is off.")
+        return .result(dialog: "Caffeine is off.")
     }
 }
 
@@ -18,7 +18,7 @@ struct CaffeineShortcutsProvider: AppShortcutsProvider {
         AppShortcut(
             intent: DeactivateCaffeineIntent(),
             phrases: ["Turn off \(.applicationName)", "Deactivate \(.applicationName)"],
-            shortTitle: "Turn Off Caffine",
+            shortTitle: "Turn Off Caffeine",
             systemImageName: "cup.and.saucer"
         )
     }

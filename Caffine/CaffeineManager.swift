@@ -11,7 +11,7 @@ class CaffeineManager: ObservableObject {
         let result = IOPMAssertionCreateWithName(
             kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString,
             IOPMAssertionLevel(kIOPMAssertionLevelOn),
-            "Caffine: preventing sleep" as CFString,
+            "Caffeine: preventing sleep" as CFString,
             &assertionID
         )
         isActive = (result == kIOReturnSuccess)

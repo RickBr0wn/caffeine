@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct CaffineApp: App {
+struct CaffeineApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {

@@ -1,4 +1,4 @@
-# Caffine
+# Caffeine
 
 A macOS menu bar app that prevents your display from sleeping.
 
@@ -17,13 +17,13 @@ A macOS menu bar app that prevents your display from sleeping.
 
 ## Getting Started
 
-1. Clone the repo and open `Caffine.xcodeproj` in Xcode
+1. Clone the repo and open `Caffeine.xcodeproj` in Xcode
 2. Set your Development Team under **Signing & Capabilities**
 3. Run
 
 ## How it works
 
-Uses an `IOPMAssertion` (`PreventUserIdleDisplaySleep`) to tell macOS not to sleep the display. The assertion is released when Caffine is toggled off, when a timer expires, or when the app quits.
+Uses an `IOPMAssertion` (`PreventUserIdleDisplaySleep`) to tell macOS not to sleep the display. The assertion is released when Caffeine is toggled off, when a timer expires, or when the app quits.
 
 You can verify it's active from Terminal:
 
